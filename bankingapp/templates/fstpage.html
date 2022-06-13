@@ -29,11 +29,11 @@ table
 th
 {
    
-    border-top: 1.5px solid black;
+    border-top: 1.5px solid rgb(121, 186, 255);
     font-size: 12px;
     padding: 6px;
-    color:black
-    border-bottom: 1.5px solid black;
+    color: rgb(0, 104, 214);
+    border-bottom: 1.5px solid rgb(121, 186, 255);
     
 }
 
@@ -105,7 +105,7 @@ td
 
 
 .bg-model {
-	background-color:black);
+	background-color: rgba(0, 0, 0, 0.3);
 
 	width: 100%;
 	height: 100%;
@@ -138,73 +138,61 @@ td
 .close:hover {
 		color: rgb(255, 128, 0);
 	}
-   
     </style>
 </head>
 <body>
-<div>
-    <h5 style="color: rgb(0, 0, 65); background-color: rgb(142, 211, 250);padding: 2px;margin-bottom:0px; width:88%;">Cheque Deposit Slip <span class="close">x</span></h5>
-</div>
-    <div style=" display:flex;margin-top:0px;">
-    <div style="border-right: .5px solid rgb(218, 218, 218); width:88%;height:30vh; ">
-    <div style="display:flex; padding: 30  spx;">
+    <div style="height: 100vh;">
+    <h5 style="color: rgb(0, 0, 65); background-color: rgb(142, 211, 250);padding: 5px;">Gateway Tally</h5>
+    <div style=" display:flex; height: 100%;">
+    <div style="border-right: .5px solid rgb(218, 218, 218); width:47%;  height: 100%; ">
+      <div style="display:flex; padding: 25px;">
         <div style="width: 50%;">
-        <h5 style="padding:5px; ">Ledger:</h5>
-        
+          <p style="color: rgb(0, 104, 214);padding:5px; font-size: 12px;">CURRENT PERIOD</p>
+          <h5 style="padding:5px;">1-Apr-22 to 31-March-23</h5>
 
-    </div>
-    <div style="width: 50%; text-align: end;">
-        <h5 style="padding:5px;">1-Apr-22 to 30-Apr-22 </h5>
+      </div>
+      <div style="width: 50%; text-align: end;">
+        <p style="color: rgb(0, 104, 214); padding:5px;font-size: 12px;">CURRENT DATE</p>
+        <h5 style="padding:5px;">Friday,1-Apr-22</h5>
 
-    </div>
-    
-</div>
-      
-      
-<table>
-    <thead >
+      </div>
+      </div>
+<table >
+    <thead>
         <tr>
-            <th>Date</th>
-            <th style="width:50%;">Particulars</th>
-            <th>Instrument No</th>
-            <th>Instrument Date</th>
-            <th>Amount</th>
+        <th>NAME OF COMPANY</th>
+        <th>DATE OF LAST ENTRY</th>
         </tr>
         
     </thead>
     <tbody>
-        <tr style="height:600px;">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            
+        <tr>
+            <td>ABC</td>
+            <td>No Vouchers entered</td>
            
         </tr>
 
     </tbody>
-    <tfoot>
-        <tr>
-            <th scope="row" colspan="4" style=" text-align:left;">Selected Total</th>
-            <th> sss</th>
-        </tr>
-        <tr>
-            <th scope="row" colspan="4" style=" text-align:left;">Grand Total</th>
-            <th> sss</th>
-        </tr>
-    </tfoot>
 </table>
 
     </div>
-    </div>
+    
+    <div style=" width:47%; height: 100%" class="lists">
+        <div style="width: 50%; padding: ; height: auto; border:1px solid  rgb(177, 203, 225);background-color: rgb(222, 242, 255);">
+           <h5 style="background-color:rgb(27, 117, 173) ; color:white; text-align: center; padding: 8px;">Banking</h5>
+           <div style="margin-bottom:10px ;">
+           <p class="titles">CHEQUE</p>
+           <button  class="btns_prnt" id="create">Cheque Printing</button>
+           <a href="#"><button  class="btns_prnt">Cheque Register</button></a>
+           <a href="#"><button  class="btns_prnt">PosT-dated Summary</button></a>
+           <p class="titles">STATEMENTS</p>
+           <a href="#"><button  class="btns_prnt">Deposit Slip</button></a>
+           <a href="#"><button  class="btns_prnt">Payment Advice</button></a>
+           <a href="#"><button  class="btns_prnt">Bank Reconciliation</button></a>
+           <br> <br>
+           <a href="#"><button  class="btns_prnt"> Quit</button></a>
+        </div>
+        </div>
    
-        
-    </body>
-    </html>
-    
-    
-    
-
-   
-                    
+</body>
+</html>
