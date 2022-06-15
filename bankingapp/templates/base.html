@@ -54,6 +54,22 @@
                 $select3.html($options1.filter('[text="' + this.value + '"]'));
             }).trigger('change');
         });
+        function checkbox(){
+  
+  var checkboxes = document.getElementsByName('vehicle');
+  var checkboxesChecked = [];
+  var b=0;
+  // loop over them all
+  for (var i=0; i<checkboxes.length; i++) {
+     // And stick the checked ones onto an array...
+     if (checkboxes[i].checked) {
+        b=b+parseInt(checkboxes[i].value);
+     }
+  }
+  document.getElementById("show").innerHTML = b;
+
+}
+ 
     </script>
 </head>
 
@@ -221,29 +237,22 @@
                             <a href="javascript:;" class="has-arrow">
                                 <div class="parent-icon"><i class="bx bx-home-alt"></i>
                                 </div>
-                                <div class="menu-title">Banking</div>
+                                <div class="menu-title">Create</div>
                             </a>
                             <ul>
-                                <li><a href="#"><i class="bx bx-down-arrow-alt"></i><b>Cheque</b> </a>
-                                    <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Cheque Printing </a></li>
-                                    <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Cheque Register </a></li>
-                                    <li><a href="#"><i class="bx bx-right-arrow-alt"></i>PosT dated summary </a></li>
-                                    
+                                <li><a href="load_create_groups"><i class="bx bx-right-arrow-alt"></i>Groups</a>
                                 </li>
-                                <li><a href="#"><i class="bx bx-down-arrow-alt"></i><b>Statements</b></a>
-                                    <li><a href="{% url 'test1' %}"><i class="bx bx-right-arrow-alt"></i>Deposited Slip </a></li>
-                                    <li><a href="{% url 'test2' %}"><i class="bx bx-right-arrow-alt"></i>Payment Advice </a></li>
-                                    <li><a href="{% url 'test3' %}"><i class="bx bx-right-arrow-alt"></i>Bank Reconciliation</a></li>
-                   
+                                <li><a href="load_create_ledgers"><i class="bx bx-right-arrow-alt"></i>Ledger</a>
                                 </li>
-                                
+                                <li><a href="load_create_select_currency"><i class="bx bx-right-arrow-alt"></i>Currency</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
                             <a href="javascript:;" class="has-arrow">
                                 <div class="parent-icon"><i class="bx bx-file"></i>
                                 </div>
-                                <div class="menu-title">Sales</div>
+                                <div class="menu-title">Banking </div>
                             </a>
                             <ul>
                                 <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Sales

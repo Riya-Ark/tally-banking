@@ -1,89 +1,144 @@
-{% extends 'basee.html' %} {% block body %} {% load static %}
+{% extends 'base.html' %}
+% load_static %}
+{% block body %}
+<div class="container-fluid" style="display:flex;">
+<div class="col-sm-12">
+    <div class=row>
+    <div class="col-sm-6">
+Ledger:Federal bank
+    </div>
+    <div class="col-sm-6" style="text-align:right;">
+        1-Apr-2022
 
-</head>
+    </div>
 
-<body>
 
-    <!-- Trigger/Open The Modal -->
-    <div class="page-content">
-        <div class="card radius-15">
-            <div class="card-body">
-                <div class="card-title">
-                    <center>
-                        <h2 class="mb-0">Cheque Deposit Slip</h2>
-                    </center>
-                    <hr>
-                </div>
-            </div>
-        </div>
+
+
+</div>
+<div class="row">
+    <div class="col-sm-12" style="text-align:center;">
+            <b>  (Reconcilliation)</b>
+    </div>
+
+</div>
+<div class="table-responsive">
+<table class="table table-responsive-md table-hover mt-4">
+ <thead>   <tr>
+    <th>Select</th>
+        <th >
+            Date
+
+        </th>
+        <th>
+            Particulars
+        </th>
+        <th>
+            Vch Type
+
+        </th>
+        <th>
+            Transaction Type
+
+        </th>
+       
+        <th>
+            Instrument No.
+            
+        </th>
+        <th>
+            Bank Date
+            
+        </th>
+        <th>
+            Debit
+            
+        </th>
+        <th>
+           Credit
+            
+        </th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            1-Apr-2022
+        </td>
+        <td>
+           Cash
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            1-Apr-2022
+        </td>
         
-                        <div class="dropdown">
-                            <div style=" display:flex;margin-top:0px;">
-                                <div style=" width:100%;height:30vh; ">
-                                <div style="display:flex; padding: 30  spx;">
-                                    <div style="width: 50%;">
-                                    <h5 style="padding:5px; ">Ledger:</h5>
-                                    
-                            
-                                </div>
-                                <div style="width: 50%; text-align: end;">
-                                    <h5 style="padding:5px;">1-Apr-22 to 30-Apr-22 </h5>
-                            
-                                </div>
-                </div>
-                <table class="table table-hover table-responsive-md mt-3" width="50%">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-            <th style="width:50%;">Particulars</th>
-            <th>Vch Type</th>
-            <th>Trasaction Type</th>
-            <th>Instrument No.</th>
-            <th>Instrument Date</th>
-            <th>Bank Date</th>
-            <th><b>Debit</b></th>
-            <th><b>Credit</b></th>
-                            
-                        </tr>
-                        
-                    </thead>
-                    <tbody>
-                       
-                        <tr style="height:225px">
-                            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>  
-                        </tr>
-                        
+        <td>
+           100000.00 
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            1-Apr-2022
+        </td>
+        <td>
+           Cash
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            1-Apr-2022
+        </td>
+        
+        <td>
+           100000.00 
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+       
+        <td class="total-column" colspan="8">
+        Balance as per Company Book:
+        </td>
+        <td>  <p style="color:white"  id="show" name="vehicle"></p><br></td>
 
-                    </tbody>
-                    <tbody>
-                        <tfoot>
-                            <tr>
-                                <th scope="row" class="table table-hover table-responsive-md mt-3" colspan="7" style=" text-align:end;">Balance as per Company Books:</th>
-                                <th> </th>
-                                <th> sss</th>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table table-hover table-responsive-md mt-3" colspan="7" style=" text-align:end;">Amounts not reflected in Bank:</th>
-                                <th> </th>
-                                <th> </th>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table table-hover table-responsive-md mt-3" colspan="7" style=" text-align:end;"><b>Balance as per Bank:</b></th>
-                                <th> </th>
-                                <th> </th>
-                            </tr>
-                        </tfoot>
-                       
-                    </table>
-                    
-</body>
+    </tr>
+    <tr>
+        <td class="total-column" colspan="8">
+        Amounts not reflected in bank:
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="total-column" colspan="8">
+        Balance as per Bank:
+        </td>
+        <td></td>
+    </tr>
+</tbody>
+</table>
+</div>
 
-{% endblock %}
+</div>
+</div>
+
+
+
+
+ {% endblock %}
