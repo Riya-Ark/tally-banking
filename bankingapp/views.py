@@ -22,6 +22,6 @@ def load_bankledger_search(request):
 
 
 def deposits(request):
-    deposit = Contra.objects.filter(particualrs='cash')
-    context = {'deposit': deposit}
+    deposit = Contra.objects.filter(particualrs='cash').values()
+    context = {'my_list': deposit}
     return render(request, 'test1.html', context)
