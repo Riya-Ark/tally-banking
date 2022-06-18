@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from bankingapp.models import Bank
+from bankingapp.models import *
 
 # Create your views here.
 
@@ -19,3 +19,9 @@ def load_ledger_search(request):
     return render(request,'load_ledger_search.html')
 def load_bankledger_search(request):
     return render(request,'load_bankledger_search.html')
+
+
+def deposits(request):
+    deposit = Contra.objects.filter(particualrs='cash')
+    context = {'deposit': deposit}
+    return render(request, 'test1.html', context)

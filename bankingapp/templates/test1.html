@@ -27,6 +27,10 @@ Ledger:Federal bank
  <thead>   <tr>
     <th>Select</th>
         <th >
+            No
+
+        </th>
+        <th >
             Date
 
         </th>
@@ -34,11 +38,11 @@ Ledger:Federal bank
             Particulars
         </th>
         <th>
-            Insturment No:
+            <!-- Insturment No:
 
-        </th>
+        </th> -->
         <th>
-            Insturment Date:
+            Transaction Type:
 
         </th>
        
@@ -47,9 +51,20 @@ Ledger:Federal bank
             
         </th>
     </tr>
+
+    {% for c in deposit %}
+    <tr>
+        <td>{{ c.no }}</td>
+          <td>{{ c.date }}</td>
+          <td>{{ c.particulrs }}</td>
+          <td>{{ c.transactiontype }}</td>
+        <td>{{ c.amount }}</td>
+      </tr>
+    {% endfor %}
+
 </thead>
 <tbody>
-    <tr>
+    <!-- <tr>
         <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
         </td>
@@ -90,7 +105,7 @@ Ledger:Federal bank
         <td>
            100000.00 
         </td>
-    </tr>
+    </tr> -->
     <tr>
        
         <td class="total-column" colspan="5">

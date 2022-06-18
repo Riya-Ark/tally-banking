@@ -49,10 +49,10 @@ class Receipt(models.Model):
 
 class Contra(models.Model):
     no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,blank=False)
-    transactiontype=models.ForeignKey(transactiontype,on_delete=models.CASCADE,blank=False)
-    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
+    # date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
+    amount=models.IntegerField(default=False)
+    transactiontype=models.CharField(max_length=10)
+    particualrs=models.CharField(max_length=100)
 
 
 class sales(models.Model):
@@ -64,11 +64,6 @@ class sales(models.Model):
 
 
 
-class bank(models.Model):
-    ledger=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
-    instno=models.IntegerField()
-    instdate=models.DateField()
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,blank=False)
-    date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
+
     
 
