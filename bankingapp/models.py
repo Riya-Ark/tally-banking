@@ -21,28 +21,46 @@ class transactiontype(models.Model):
 class account(models.Model):
      
      account=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
-     date=models.DateField()
+    #  date=models.DateField()
 
 class Particulars(models.Model):
     particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
     amount=models.IntegerField()
 
+class Bank_name(models.Model):
+    name=models.CharField(max_length=25)
+    
+    def _str_(self):
+         return self.name
+
+class ledger_name(models.Model):
+    ledger=models.CharField(max_length=25)
+    
+    def _str_(self):
+         return self.ledger
 
 class Payment(models.Model):
-    no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,blank=False)
-    transactiontype=models.ForeignKey(transactiontype,on_delete=models.CASCADE,blank=False)
-    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
-
+    no=models.IntegerField() 
+    amount=models.IntegerField(default=False)
+    transactiontype=models.CharField(max_length=10)
+    particualrs=models.CharField(max_length=100) 
+    # instrument_no=models.IntegerField(default=False) 
+    # instrument_date=models.DateField(default=False) 
+    def _str_(self):
+         return self
+    
+    
 class Receipt(models.Model):
     no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,blank=False)
-    transactiontype=models.ForeignKey(transactiontype,on_delete=models.CASCADE,blank=False)
-    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
-
-   
+    # date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
+    amount=models.IntegerField(default=False)
+    transactiontype=models.CharField(max_length=10)
+    particualrs=models.CharField(max_length=100)
+    instrument_no=models.IntegerField(default=False) 
+    # instrument_date=models.DateField(default=False) 
+    def _str_(self):
+         return self
+    
 
    
 
@@ -53,15 +71,23 @@ class Contra(models.Model):
     amount=models.IntegerField(default=False)
     transactiontype=models.CharField(max_length=10)
     particualrs=models.CharField(max_length=100)
-
+    # instrument_no=models.IntegerField(default=False) 
+    # instrument_date=models.DateField() 
+    def _str_(self):
+         return self
+    
 
 class sales(models.Model):
     no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,blank=False)
-    transactiontype=models.ForeignKey(transactiontype,on_delete=models.CASCADE,blank=False)
-    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
-
+    # date=models.ForeignKey(account,on_delete=models.CASCADE,blank=False)
+    amount=models.IntegerField(default=False)
+    transactiontype=models.CharField(max_length=10)
+    particualrs=models.CharField(max_length=100)
+    # instrument_no=models.IntegerField(default=False) 
+    # instrument_date=models.DateField(default=False) 
+    def _str_(self):
+         return self
+    
 
 
 

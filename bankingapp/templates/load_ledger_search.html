@@ -52,12 +52,10 @@
    <div style="text-align:center;">
    <a href="">create</a>
    </div>
-  <li><a href="#">Water Bill</a></li>
-  <li><a href="#">FEDERAL</a></li>
-
-  <li><a href="#">AXIS</a></li>
-  <li><a href="#">HDFC</a></li>
-
+   {% for results in showledger %}
+  <li><a href="#">{{ results.ledger}}</a></li>
+  {% endfor %}
+  
   
 </ul>
 </center>

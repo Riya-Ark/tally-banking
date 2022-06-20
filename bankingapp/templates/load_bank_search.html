@@ -52,12 +52,10 @@
    <div style="text-align:center;">
    <a href="">create</a>
    </div>
-  <li><a href="#">SBI</a></li>
-  <li><a href="#">FEDERAL</a></li>
-
-  <li><a href="#">AXIS</a></li>
-  <li><a href="#">HDFC</a></li>
-
+   {% for results in showbank %}
+  <li><a href="#">{{ results.name}}</a></li>
+  {% endfor %}
+  
   
 </ul>
 </center>

@@ -10,5 +10,6 @@ urlpatterns = [
     path('load_bank_search',views.load_bank_search,name='load_bank_search'),
     path('load_ledger_search',views.load_ledger_search,name='load_ledger_search'),
     path('load_bankledger_search',views.load_bankledger_search,name='load_bankledger_search'),
+    path('pay_advice',views.pay_advice,name='pay_advice'),
 
 ]
