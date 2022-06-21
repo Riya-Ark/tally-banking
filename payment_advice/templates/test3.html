@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+% load_static %}
+{% block body %}
+<div class="container-fluid" style="display:flex;">
+<div class="col-sm-12">
+    <div class=row>
+    <div class="col-sm-6">
+Ledger:Federal bank
+    </div>
+    <div class="col-sm-6" style="text-align:right;">
+        1-Apr-2022
+
+    </div>
+
+
+
+
+</div>
+<div class="row">
+    <div class="col-sm-12" style="text-align:center;">
+            <b>  (Reconcilliation)</b>
+    </div>
+
+</div>
+<div class="table-responsive">
+<table class="table table-responsive-md table-hover mt-4">
+ <thead>   <tr>
+    <th>Select</th>
+        <th >
+            Date
+
+        </th>
+        <th>
+            Particulars
+        </th>
+        <th>
+            Vch Type
+
+        </th>
+        <th>
+            Transaction Type
+
+        </th>
+       
+        <th>
+            Instrument No.
+            
+        </th>
+        <th>
+            Bank Date
+            
+        </th>
+        <th>
+            Debit
+            
+        </th>
+        <th>
+           Credit
+            
+        </th>
+    </tr>
+</thead>
+<tbody>
+    {% for i in payment %}
+    <tr>
+        <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            {{ i.bank_names }}
+        </td>
+        <td>
+            {{ i.pamount }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ i.particulars }}
+        </td>
+        
+        <!-- <td>
+           100000.00 
+        </td> -->
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+   {% endfor %}
+    <tr>
+       
+        <td class="total-column" colspan="8">
+        Balance as per Company Book:
+        </td>
+        <td>  <p style="color:white"  id="show" name="vehicle"></p><br></td>
+
+    </tr>
+    <tr>
+        <td class="total-column" colspan="8">
+        Amounts not reflected in bank:
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="total-column" colspan="8">
+        Balance as per Bank:
+        </td>
+        <td></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+
+
+
+
+ {% endblock %}

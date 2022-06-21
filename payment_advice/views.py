@@ -1,6 +1,6 @@
-import re
-from django.shortcuts import render
-from bankingapp.models import *
+from contextlib import nullcontext
+from django.shortcuts import render, redirect
+from .models import *
 
 # Create your views here.
 
@@ -27,6 +27,8 @@ def load_ledger_search(request):
 def load_bankledger_search(request):
     return render(request,'load_bankledger_search.html')
 
+
+
 # deposit slip
 def deposits(request):
     deposit = Contra.objects.filter(particualrs='cash').values()
@@ -34,33 +36,20 @@ def deposits(request):
     return render(request, 'test1.html', context)
 
 def depos(request):
-    depo=Receipt.objects.filter(account='').values()
-    context={'list':depo}
+    depo = Receipt.objects.filter(particualrs='Cheque')
+    context={'rlist': depo}
 
     return render(request,'test1.html',context)
 
 def depo(request):
-    dep=sales.objects.filter(account='').values()
+    dep=payment_voucher.objects.filter(account='sbi').values()
     context={'li':dep}
     return render(request,'test1.html',context)
 
-#payment advice
 
+def advice_view(request):
 
-def pay_advice(request):
-
-    if request.method =='POST':
-
-        try:
-            ledger_name =  request.POST('electricity')
-
-            payment_slip = Payment.objects.filter(Particulars='ledger_name')
-            context = {'payment': payment_slip}
-
-            return render(request, 'test3.html', context)
-
-        except:
-            return render(request, '/')
-
-
+    payment_slip = payment_voucher.objects.all()
+    context = {'payment': payment_slip}
+    return render(request, 'test3.html', context)
 

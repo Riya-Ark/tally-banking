@@ -10,3 +10,5 @@ git commit -m  "$commitentry"
 
 git push
 
+git log -1
+
