@@ -52,10 +52,20 @@
    <div style="text-align:center;">
    <a href="">create</a>
    </div>
-   {% for results in showbank %}
-  <li><a href="#">{{ results.name}}</a></li>
-  {% endfor %}
+
+
+  {% for results in showbank %}
+   
+  <li><a href="#">{{ results.group_list }}</a></li>
+   <option>
+    value="{{ results.group_list }}""
+
+
+   </option>
+
   
+  {% endfor %}
+
   
 </ul>
 </center>

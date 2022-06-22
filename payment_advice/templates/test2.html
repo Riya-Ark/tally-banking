@@ -49,6 +49,7 @@ Ledger:Federal bank
     </tr>
 </thead>
 <tbody>
+    {% for i in payment %}
     <tr>
         <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
@@ -57,40 +58,21 @@ Ledger:Federal bank
             1-Apr-2022
         </td>
         <td>
-           
+            {{ i.bank_names }}
         </td>
         <td>
-            
+            {{ i.pamount }} 
         </td>
         <td>
             
         </td>
         
         <td>
-           100000.00 
+            {{ i.pamount }} 
         </td>
     </tr>
-    <tr>
-        <td>
-            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
-        </td>
-        <td>
-            1-Apr-2022
-        </td>
-        <td>
-           Cash
-        </td>
-        <td>
-            
-        </td>
-        <td>
-            1-Apr-2022
-        </td>
-        
-        <td>
-           100000.00 
-        </td>
-    </tr>
+    {% endfor %}
+    
     <tr>
        
         <td class="total-column" colspan="5">
