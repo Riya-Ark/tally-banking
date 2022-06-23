@@ -4,7 +4,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -41,33 +41,34 @@
   background-color: #eee;
 }
 </style>
-</head>
+</head> */
 <body>
 
-<center><h4>Name of banks</h4>
+<!-- <center><h4>Name of banks</h4>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"></center>
 <center><h4>List of banks</h4>
 <ul id="myUL">
    <div style="text-align:center;">
    <a href="">create</a>
-   </div>
+   </div> -->
 
 
   {% for results in showbank %}
+  <form action="{% url'deposits'%}">
+   <select name="banks">
+    <option>{{ results.group_list }}</option><br>
    
-  <li><a href="#">{{ results.group_list }}</a></li>
-   <option>
-    value="{{ results.group_list }}""
+   </select>
+  
+   <input type="submit" value="click">
 
-
-   </option>
-
+  </form>
   
   {% endfor %}
 
   
-</ul>
+<!-- </ul>
 </center>
 <script>
 function myFunction() {
@@ -86,7 +87,7 @@ function myFunction() {
         }
     }
 }
-</script>
+</script> -->
 
 {% endblock %}
 

@@ -1,6 +1,8 @@
 from contextlib import nullcontext
+from email.policy import default
 from django.shortcuts import render, redirect
 from .models import *
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -20,7 +22,7 @@ def load_bank_search(request):
     return render(request,'load_bank_search.html',{'showbank':results})
 
 def load_ledger_search(request):
-    results=ledger_name.objects.all
+    results=ledgers.objects.all
     return render(request,'load_ledger_search.html',{'showledger':results})
 
     
@@ -29,11 +31,13 @@ def load_bankledger_search(request):
 
 
 
-# deposit slip
+# deposit slipe
 def deposits(request):
-    deposit = Contra.objects.filter(particualrs='cash').values()
-    context = {'my_list': deposit}
-    return render(request, 'test1.html', context)
+    results=request.POST.get("banks", False)
+    return render(request, 'test1.html',{"banks":results})
+    # deposit = Contra.objects.filter(particualrs='cash').values()
+    # context = {'my_list': deposit}
+    # return render(request, 'test1.html', context)
 
 def depos(request):
 
@@ -83,7 +87,20 @@ def reconciliation3(request):
     return render(request,'test3.html',context3)
 
 
+def credit_amount(request):
+    check_payment = payment_voucher.objects.all()
+    check_receipt = Receipt.objects.all()
+    check_sales = sales.objects.all()
+    check_contra = Contra.objects.all()
+    check_journal = Journal.objects.all()
 
+    return render(request, 'test3.html', {
+        "check_payment": check_payment,
+        "check_receipt": check_receipt,
+        "check_sales": check_sales,
+        "check_contra": check_contra,
+        "check_journal": check_journal,
+        } )
 
 
 

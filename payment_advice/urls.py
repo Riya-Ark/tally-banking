@@ -7,7 +7,7 @@ urlpatterns = [
     path('advice_view',views.advice_view,name='advice_view'),
     path('depos',views.depos,name='depos'),
 
-    path('',views.deposits,name='test1'),
+    path('deposits',views.deposits,name='test1'),
     path('test2',views.test2,name='test2'),
     path('test3',views.test3,name='test3'),
     path('ledger',views.ledger,name='ledger'),
@@ -20,5 +20,6 @@ urlpatterns = [
     path('reconciliation2',views.reconciliation2,name='reconciliation2'),
     path('reconciliation3',views.reconciliation3,name='reconciliation3'),
     
+    path('credit_amount',views.credit_amount,name='credit_amount'),
 
 ]
