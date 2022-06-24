@@ -109,7 +109,7 @@ Ledger:Federal bank
             
         </td>
         <td>
-            {{ debi.transaction_type }}
+            {{ debi.transactiontype }}
         </td>
         <td></td>
         <td>
@@ -120,7 +120,36 @@ Ledger:Federal bank
         </td>
         
         <td>
-            {{ debi.pamount }}
+            {{ debi.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for deb in check_sales %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ deb.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ deb.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ deb.amount }}
         </td>
     </tr>
     {% endfor %}

@@ -58,7 +58,15 @@ def dep(request):
     context={'jlist':dep}
     return render(request,'test1.html',context)
 
+def dep(request):
+    dep=sales.objects.filter(account='sbi').values
+    context={'slist':dep}
+    return render(request,'test1.html',context)
 
+def dep(request):
+    dep=Contra.objects.filter(account='sbi').values
+    context={'clist':dep}
+    return render(request,'test1.html',context)
 
 def advice_view(request):
 
