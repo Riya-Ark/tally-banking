@@ -1,6 +1,9 @@
 from contextlib import nullcontext
 from email.policy import default
+from heapq import merge
 from django.shortcuts import render, redirect
+
+from bankingapp.models import Bank_name
 from .models import *
 from django.http import HttpResponse
 
@@ -97,18 +100,21 @@ def reconciliation3(request):
 
 def credit_amount(request):
     check_payment = payment_voucher.objects.all()
-    check_receipt = Receipt.objects.all()
-    check_sales = sales.objects.all()
-    check_contra = Contra.objects.all()
-    check_journal = Journal.objects.all()
+    credit_receipt = Receipt.objects.filter(bank_names__group_list='CASH')
+    debit_receipt = Receipt.objects.filter(bank_names__group_list='bank_names')
+    credit_sales = sales.objects.filter(bank_names__group_list='CASH')
+    debit_sales = sales.objects.filter(bank_names__group_list='bank_names')
+    credit_contra = Contra.objects.filter(bank_names__group_list='CASH')
+    debit_contra = Contra.objects.filter(bank_names__group_list='bank_names')
+    credit_journal = Journal.objects.filter(bank_names__group_list='CASH')
+    debit_journal = Journal.objects.filter(bank_names__group_list='bank_names')
 
-    return render(request, 'test3.html', {
-        "check_payment": check_payment,
-        "check_receipt": check_receipt,
-        "check_sales": check_sales,
-        "check_contra": check_contra,
-        "check_journal": check_journal,
-        } )
+    table =  merge(check_payment, debit_journal, credit_journal,
+            debit_contra, credit_contra, debit_sales,
+            credit_sales, debit_receipt, credit_receipt, check_payment
+            )
+
+    return render(request, 'test3.html', {"table": table})
 
 
 

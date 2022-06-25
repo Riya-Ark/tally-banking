@@ -63,4 +63,3 @@ def pay_advice(request):
             return render(request, '/')
 
 
-
