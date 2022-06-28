@@ -62,7 +62,7 @@ Ledger:Federal bank
     </tr>
 </thead>
 <tbody>
-    {% for debit in table %}
+    {% for debit in check_payment %}
     
     <tr>
         <td>
@@ -124,7 +124,7 @@ Ledger:Federal bank
         </td>
     </tr>
     {% endfor %}
-    {% for deb in check_sales %}
+    {% for deb in debit_journal %}
     <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
         </td>
@@ -150,6 +150,210 @@ Ledger:Federal bank
         
         <td>
             {{ deb.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for cj in credit_journal %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cj.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cj.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ cj.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    
+    {% for dc in debit_contra %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ dc.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ dc.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ dc.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for cc in credit_contra %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cc.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cc.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ cc.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for ds in debit_sales %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ ds.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ ds.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ ds.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for cs in credit_sales %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cs.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cs.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ cs.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for dr in debit_receipt %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ dr.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ dr.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ dr.amount }}
+        </td>
+    </tr>
+    {% endfor %}
+    {% for cr in credit_receipt %}
+    <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value="100000">
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cr.particulars }}
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            {{ cr.transactiontype }}
+        </td>
+        <td></td>
+        <td>
+           
+        </td>
+        <td>
+           
+        </td>
+        
+        <td>
+            {{ cr.amount }}
         </td>
     </tr>
     {% endfor %}

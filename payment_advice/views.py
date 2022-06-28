@@ -1,11 +1,9 @@
 from contextlib import nullcontext
 from email.policy import default
-from heapq import merge
 from django.shortcuts import render, redirect
-
-from bankingapp.models import Bank_name
 from .models import *
 from django.http import HttpResponse
+
 
 # Create your views here.
 
@@ -115,6 +113,7 @@ def credit_amount(request):
             )
 
     return render(request, 'test3.html', {"table": table})
+
 
 
 

@@ -12,3 +12,5 @@ git push
 
 git log -1
 
+git remote -v
+
