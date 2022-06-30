@@ -41,3 +41,15 @@ def depo(request):
     context={'li':dep}
     return render(request,'deposit_slip.html',context)
 
+def searchledger(request):
+    group=groups.objects.get(group= "ledger account")
+    led=ledger.objects.filter(group=group.id)
+    return render(request,'search_ledger.html',{'l':led})
+
+def payment_advice(request,id):
+    return render(request,'payment_advice.html')
+
+def reconciliation(request):
+    return render(request,'bank_reconcilliation.html')
+
+
