@@ -1,7 +1,7 @@
 from django.urls import path
 from .import views
 import datetime
-
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from .models import  *
 from django.db.models import Count
@@ -25,19 +25,22 @@ def searchbank(request):
     return render(request,'search_bank.html',{'l':led})
 
 def deposit(request,id):
-    sum=0
     led=ledger.objects.get(id=id)
     uid=led.id
-    bak=bank.objects.filter(ledger=uid)
-    back=bak
-    for  back in back:
-        b=back.amount.amount
-        sum=sum+b
-    return render(request,'deposit_slip.html',{'bank':bak,'sum':sum})
-
-def depo(request):
     
-    dep=contra.objects.filter(account__group="bank account").values()
+    v=Vouchertype.objects.all()
+    for v in v:
+        if v.vouchertype=='Payment':
+            vid=v.id
+
+
+   
+    bak=bank.objects.filter(~Q(vouchertype=vid)),filter(ledger=uid)
+    return render(request,'deposit_slip.html',{'bank':bak,'vi':v})
+
+def deposit_slip(request):
+    
+    dep=contra.objects.filter().values()
     context={'li':dep}
     return render(request,'deposit_slip.html',context)
 
@@ -46,10 +49,15 @@ def searchledger(request):
     led=ledger.objects.filter(group=group.id)
     return render(request,'search_ledger.html',{'l':led})
 
-def payment_advice(request,id):
-    return render(request,'payment_advice.html')
+def payment_advice(request):
+    payment_slip = payment.objects.filter()
+    context = {'payment': payment_slip}
+    return render(request,'payment_advice.html',context)
 
 def reconciliation(request):
-    return render(request,'bank_reconcilliation.html')
+    check_payment = payment.objects.all()
+    context={'pay':check_payment}
+    return render(request,'bank_reconcilliation.html',context)
+
 
 
