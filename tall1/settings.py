@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'tall1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tall',
+        'NAME': 'tall2',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

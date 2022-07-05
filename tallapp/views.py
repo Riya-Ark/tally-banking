@@ -30,29 +30,34 @@ def deposit(request,id):
     
     v=Vouchertype.objects.all()
     for v in v:
-        if v.vouchertype=='Payment':
+        if v.vouchertype=='payment':
             vid=v.id
 
 
    
-    bak=bank.objects.filter(~Q(vouchertype=vid)),filter(ledger=uid)
+    bak=bank.objects.filter(~Q(vouchertype=vid)).filter(ledger=uid)
     return render(request,'deposit_slip.html',{'bank':bak,'vi':v})
 
-def deposit_slip(request):
-    
-    dep=contra.objects.filter().values()
-    context={'li':dep}
-    return render(request,'deposit_slip.html',context)
 
 def searchledger(request):
     group=groups.objects.get(group= "ledger account")
     led=ledger.objects.filter(group=group.id)
     return render(request,'search_ledger.html',{'l':led})
 
-def payment_advice(request):
-    payment_slip = payment.objects.filter()
-    context = {'payment': payment_slip}
-    return render(request,'payment_advice.html',context)
+def payment_advice(request,id):
+    led=ledger.objects.get(id=id)
+    uid=led.id
+    
+    v=Vouchertype.objects.all()
+    for v in v:
+        if v.vouchertype=='payment':
+            vid=v.id
+
+
+   
+    bak=bank.objects.filter(vouchertype=vid).filter(ledger=uid)
+    return render(request,'payment_advice.html',{'bank':bak,'vi':v})
+
 
 def reconciliation(request):
     check_payment = payment.objects.all()
