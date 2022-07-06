@@ -54,7 +54,8 @@
     </tr>
 </thead>
 <tbody>
-    
+    {% for v in vi %}
+   {% for bak in bank %}
     <tr>
         <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>

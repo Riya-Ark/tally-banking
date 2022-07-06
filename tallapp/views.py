@@ -63,6 +63,14 @@ def reconciliation(request):
     check_payment = payment.objects.all()
     context={'pay':check_payment}
     return render(request,'bank_reconcilliation.html',context)
+def reconciliation1(request):
+    check_contra=contra.objects.all()
+    context={'contra':check_contra}
+    return render(request,'bank_reconcilliation.html',context)
+def reconciliation3(request):
+    check_sales=sales.objects.all()
+    context={'sales':check_sales}
+    return render(request,'bank_reconcilliation.html',context)
 
 
 
