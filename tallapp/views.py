@@ -57,20 +57,50 @@ def payment_advice(request,id):
    
     bak=bank.objects.filter(vouchertype=vid).filter(ledger=uid)
     return render(request,'payment_advice.html',{'bank':bak,'vi':v})
+def searchbank1(request):
+    group=groups.objects.get(group="bank account")
+    
+
+    led=ledger.objects.filter(group=group.id)
+    
+
+    return render(request,'search_bank1.html',{'l':led})
 
 
-def reconciliation(request):
-    check_payment = payment.objects.all()
-    context={'pay':check_payment}
-    return render(request,'bank_reconcilliation.html',context)
-def reconciliation1(request):
-    check_contra=contra.objects.all()
-    context={'contra':check_contra}
-    return render(request,'bank_reconcilliation.html',context)
-def reconciliation3(request):
-    check_sales=sales.objects.all()
-    context={'sales':check_sales}
-    return render(request,'bank_reconcilliation.html',context)
+
+def reconciliation(request,id):
+    bk=bank.object.filter(ledger=id)
+    credit={}
+    debit={}
+    con=contra.objects.all()
+    pay=payment.objects.all()
+    rec=receipt.objects.all()
+    
+    
+
+#     check_payment = payment.objects.all()
+#     context={'pay':check_payment}
+#     return render(request,'bank_reconcilliation.html',context)
+# def reconciliation1(request):
+#     check_contra=contra.objects.all()
+#     context={'contra':check_contra}
+#     return render(request,'bank_reconcilliation.html',context)
+# def reconciliation3(request):
+#     check_sales=sales.objects.all()
+#     context={'sales':check_sales}
+#     return render(request,'bank_reconcilliation.html',context)
+# def reconciliation4(request):
+#     check_journal=journal.objects.all()
+#     context={'journal':check_journal}
+#     return render(request,'bank_reconcilliation.html',context)
+# def reconciliation5(request):
+#     check_receipt=receipt.objects.all()
+#     context={'sales':check_receipt}
+#     return render(request,'bank_reconcilliation.html',context)
+
+
+
+
 
 
 

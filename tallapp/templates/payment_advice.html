@@ -54,30 +54,30 @@
     </tr>
 </thead>
 <tbody>
-    
+    {% for bank in bank %}
     <tr>
         <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>
         </td>
         <td>
-           1/2/2021
+            {{bank.date.date}}
         </td>
         <td>
-       cash
+            {{bank.date.account}}
         </td>
         <td>
-           1
+           {{bank.vouchertype.vouchertype}}
             
         </td>
         <td>
-            4/5/2021
+           {{bank.no.payment}}
         </td>
         
         <td >
-            6000
+            {{bank.amount.amount}}
         </td>
     </tr>
-    
+    {% endfor %}
  
     <tr>
        
