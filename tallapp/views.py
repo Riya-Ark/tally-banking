@@ -15,6 +15,8 @@ from dateutil import relativedelta
 # Create your views here.
 def home(request):
     return render(request,'base.html')
+def recon(request):
+    return render(request,'bank_reconcilliation.html')
 def searchbank(request):
     group=groups.objects.get(group="bank account")
     
@@ -47,16 +49,16 @@ def searchledger(request):
 def payment_advice(request,id):
     led=ledger.objects.get(id=id)
     uid=led.id
-    
-    v=Vouchertype.objects.all()
-    for v in v:
-        if v.vouchertype=='payment':
-            vid=v.id
+    pay=payment.objects.all().filter(ledger=uid)
+    # v=Vouchertype.objects.all()
+    # for v in v:
+    #     if v.vouchertype=='payment':
+    #         vid=v.id
 
 
    
-    bak=bank.objects.filter(vouchertype=vid).filter(ledger=uid)
-    return render(request,'payment_advice.html',{'bank':bak,'vi':v})
+    # bak=bank.objects.filter(vouchertype=vid).filter(ledger=uid)
+    return render(request,'payment_advice.html',{'p':pay})
 def searchbank1(request):
     group=groups.objects.get(group="bank account")
     
@@ -64,19 +66,28 @@ def searchbank1(request):
     led=ledger.objects.filter(group=group.id)
     
 
-    return render(request,'search_bank1.html',{'l':led})
+    return render(request,'banksearch.html',{'l':led})
 
 
 
 def reconciliation(request,id):
-    bk=bank.object.filter(ledger=id)
+    bnk=bank.objects.filter(ledger=id)
     credit={}
     debit={}
     con=contra.objects.all()
     pay=payment.objects.all()
     rec=receipt.objects.all()
     
-    
+    led=ledger.objects.get(id=id)
+    for bak in bnk:
+        if bak.ledger==led.id:
+            credit[bak.id]=bak.amount.amount
+        else:
+            debit[bak.id]=bak.amount.amount
+    # print(credit)
+    print(debit)
+    return render(request,'bank_reconcilliation.html',{'c':con,'p':pay,'r':rec,'b':bnk,'l':led})
+
 
 #     check_payment = payment.objects.all()
 #     context={'pay':check_payment}

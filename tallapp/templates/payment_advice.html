@@ -5,8 +5,8 @@
 <div class="col-sm-12">
     <div class=row>
     <div class="col-sm-6">
-        {% for bak in bank|slice:":1" %}
-    Ledger: {{bak.amount.particualrs}}
+        {% for pk in p|slice:":1" %}
+    Ledger: {{pk.amount.particualrs}}
 
 {% endfor %}
     </div>
@@ -54,31 +54,33 @@
     </tr>
 </thead>
 <tbody>
-    {% for bank in bank %}
+    {% for pk in p %}
+    
+    
     <tr>
         <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>
         </td>
         <td>
-            {{bank.date.date}}
+            {{pk.date.date}}
         </td>
         <td>
-            {{bank.date.account}}
+            {{pk.date.account}}
         </td>
         <td>
-           {{bank.vouchertype.vouchertype}}
+           {{pk.vouchertype.vouchertype}}
             
         </td>
         <td>
-           {{bank.no.payment}}
+           {{pk.no}}
         </td>
         
         <td >
-            {{bank.amount.amount}}
+            {{pk.amount.amount}}
         </td>
     </tr>
     {% endfor %}
- 
+    
     <tr>
        
         <td class="total-column" colspan="5">

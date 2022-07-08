@@ -5,9 +5,8 @@
 <div class="col-sm-12">
     <div class=row>
     <div class="col-sm-6">
-        {% for bak in bank|slice:":1" %}
-    Ledger: {{bak.amount.particualrs}}
-
+        {% for bk in b|slice:":1" %}
+    Ledger: {{bk.date.account}}
 {% endfor %}
     </div>
     <div class="col-sm-6" style="text-align:right;">
@@ -66,41 +65,121 @@
     </tr>
 </thead>
 <tbody>
-    {% for debit in check_payment %}
+    {% for bk in b %}
+    {% for ck in c %}
+    
     <tr>
         <td>
             <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>
         </td>
         <td>
-           debit.particualrs
+        {{bk.date.date}}
         </td>
         <td>
-           debit.vouchertype
+        {{ck.amount.particualrs}}
         </td>
         <td>
-           debit.
+        {{ck.vouchertype.vouchertype}}
             
         </td>
         <td>
-            debit.
+            {{bk.transactiontype.transactiontype}}
         </td>
-        
+            
         <td >
-            debit.
-        
-        </td>
-        <td >
-            debit.
+            
+           {{bk.instno}}
         </td>
         <td >
-           debit.
+            
+        </td>
+        <td >
+           
+        </td>
+        <td >
+         
+        </td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+    
+    {% for bk in b %}
+    {% for pk in p %}
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>
+        </td>
+        <td>
+        {{bk.date.date}}
+        </td>
+        <td>
+        {{pk.amount.particualrs}}
+        </td>
+        <td>
+        {{pk.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+            {{bk.transactiontype.transactiontype}}
+        </td>
+            
+        <td>
+            
+           {{bk.instno}}
+        </td>
+        <td >
+            
+        </td>
+        <td >
+           
         </td>
         <td >
          
         </td>
     </tr>
     
- 
+    {% endfor %}
+    {% endfor %}
+    {% for bk in b %}
+    {% for rk in r %}
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>
+        </td>
+        <td>
+        {{bk.date.date}}
+        </td>
+        <td>
+        {{rk.amount.particualrs}}
+        </td>
+        <td>
+        {{rk.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+            {{bk.transactiontype.transactiontype}}
+        </td>
+            
+        <td>
+            
+           {{bk.instno}}
+        </td>
+        <td >
+            
+        </td>
+        <td >
+           
+        </td>
+        <td >
+         
+        </td>
+    </tr>
+    
+    {% endfor %}
+    {% endfor %}
+    
     <tr>
        
         <td class="total-column" colspan="5">
