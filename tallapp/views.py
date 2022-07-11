@@ -84,9 +84,11 @@ def reconciliation(request,id):
             credit[bak.id]=bak.amount.amount
         else:
             debit[bak.id]=bak.amount.amount
-    # print(credit)
+    print(credit)
     print(debit)
     return render(request,'bank_reconcilliation.html',{'c':con,'p':pay,'r':rec,'b':bnk,'l':led})
+
+
 
 
 #     check_payment = payment.objects.all()
