@@ -29,7 +29,7 @@
 
 <table  class="table table-responsive-md table-hover mt-4">
  <thead>   <tr>
-    <th>Select</th>
+   
         <th >
             Date
 
@@ -69,9 +69,7 @@
     
     
     <tr>
-        <td>
-            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{bank.amount.amount}}>
-        </td>
+       
         <td>
         {{bk.date.date}}
         </td>
@@ -90,34 +88,42 @@
             
            {{bk.instno}}
         </td>
+        
+            <form method="post" action="">
+                <td>
+                    <input type="date" name="bank_date">
+                </td>
+                </form>
+        
+      
         <td >
-            
+           {{bk.amount.amount}}
         </td>
         <td >
-           
-        </td>
-        <td >
-         
+        
         </td> 
     </tr>
     {% endfor %}
    
     
     
-    <tr>
-       
-        <td class="total-column" colspan="5">
-        Selected Total
+       <tr>
+       <td class="total-column" colspan="6" align="right">
+        Balance as per Company Books:
         </td>
-        <td>  <p style="color:white"  id="show" name="vehicle"></p><br></td>
-    </tr>
-    <tr>
-        <td class="total-column" colspan="5">
-        Total
+        <td colspan="2"></td>
+        </tr>
+        <tr>
+        <td class="total-column" colspan="6" align="right"> Amount not reflected in Bank:</td>
+        <td colspan="2"></td>
+        </tr>
+        <tr>
+        <td class="total-column" colspan="6" align="right"> <b>Balance as per Bank:</b>
+        
         </td>
         <td>
                    
-          {{sum}}
+        
         </td>
         
     </tr>

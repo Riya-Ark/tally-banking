@@ -17,6 +17,8 @@ def home(request):
     return render(request,'base.html')
 def recon(request):
     return render(request,'bank_reconcilliation.html')
+def load_create_ledgers(request):
+    return render(request,'load_create_ledgers.html')   
 def searchbank(request):
     group=groups.objects.get(group="bank account")
     
@@ -27,6 +29,7 @@ def searchbank(request):
     return render(request,'search_bank.html',{'l':led})
 
 def deposit(request,id):
+    sum=0
     led=ledger.objects.get(id=id)
     uid=led.id
     
@@ -38,7 +41,12 @@ def deposit(request,id):
 
    
     bak=bank.objects.filter(~Q(vouchertype=vid)).filter(ledger=uid)
-    return render(request,'deposit_slip.html',{'bank':bak,'vi':v})
+    back=bak
+    for back in back:
+        b=back.amount.amount
+        sum=sum+b
+
+    return render(request,'deposit_slip.html',{'bank':bak,'vi':v,'sum':sum})
 
 
 def searchledger(request):
@@ -47,6 +55,7 @@ def searchledger(request):
     return render(request,'search_ledger.html',{'l':led})
 
 def payment_advice(request,id):
+    sum=0
     led=ledger.objects.get(id=id)
     uid=led.id
     pay=payment.objects.all().filter(ledger=uid)
@@ -54,11 +63,15 @@ def payment_advice(request,id):
     # for v in v:
     #     if v.vouchertype=='payment':
     #         vid=v.id
-
+    
+    pays=pay
+    for pays in pay:
+        p=pays.amount.amount
+        sum=sum+p
 
    
     # bak=bank.objects.filter(vouchertype=vid).filter(ledger=uid)
-    return render(request,'payment_advice.html',{'p':pay})
+    return render(request,'payment_advice.html',{'p':pay,'sum':sum})
 def searchbank1(request):
     group=groups.objects.get(group="bank account")
     
@@ -86,8 +99,12 @@ def reconciliation(request,id):
             debit[bak.id]=bak.amount.amount
     print(credit)
     print(debit)
+
     return render(request,'bank_reconcilliation.html',{'c':con,'p':pay,'r':rec,'b':bnk,'l':led})
 
+def collection(request):
+    collect=contra.objects.filter()
+    return render(request,'bank_reconcilliation.html',{'c':collect})
 
 
 
