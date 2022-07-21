@@ -5,9 +5,7 @@
 <div class="col-sm-12">
     <div class=row>
     <div class="col-sm-6">
-        {% for bk in b|slice:":1" %}
-    Ledger: {{bk.date.account}}
-{% endfor %}
+      
     </div>
     <div class="col-sm-6" style="text-align:right;">
         1-Apr-2022
@@ -66,6 +64,7 @@
 </thead>
 <tbody>
     {% for bk in b %}
+    {% if bk.ledger.id == l.id %}
     
     
     <tr>
@@ -99,13 +98,55 @@
         <td >
            {{bk.amount.amount}}
         </td>
+        
         <td >
         
         </td> 
     </tr>
-    {% endfor %}
+    {% elif bk.amount.particualrs == l %}
+   
    
     
+    
+    <tr>
+       
+        <td>
+        {{bk.date.date}}
+        </td>
+        <td>
+        {{bk.amount.particualrs}}
+        </td>
+        <td>
+        {{bk.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+            {{bk.transactiontype.transactiontype}}
+        </td>
+            
+        <td >
+            
+           {{bk.instno}}
+        </td>
+      
+        
+            <form method="post" action="">
+                <td>
+                    <input type="date" name="bank_date">
+                </td>
+                </form>
+        
+      
+        <td >
+           {{bk.amount.amount}}
+        </td>
+        
+        <td >
+        
+        </td> 
+    </tr>
+    {% endif %}
+    {% endfor %}
     
        <tr>
        <td class="total-column" colspan="6" align="right">

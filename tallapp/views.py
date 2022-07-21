@@ -58,6 +58,10 @@ def payment_advice(request,id):
     sum=0
     led=ledger.objects.get(id=id)
     uid=led.id
+    par= Particulars.objects.get(amount=id)
+    # bak=bank.objects.all
+    # part1={}
+    # for pat in part:
     pay=payment.objects.all().filter(ledger=uid)
     # v=Vouchertype.objects.all()
     # for v in v:
@@ -78,13 +82,14 @@ def searchbank1(request):
 
     led=ledger.objects.filter(group=group.id)
     
-
     return render(request,'banksearch.html',{'l':led})
 
 
 
 def reconciliation(request,id):
-    bnk=bank.objects.filter(ledger=id)
+    bak=bank.objects.filter(id=id)
+    b=bank.objects.all()
+    # par=Particulars.objects.get(particualrs=id)
     credit={}
     debit={}
     con=contra.objects.all()
@@ -92,15 +97,26 @@ def reconciliation(request,id):
     rec=receipt.objects.all()
     
     led=ledger.objects.get(id=id)
-    for bak in bnk:
-        if bak.ledger==led.id:
-            credit[bak.id]=bak.amount.amount
+    
+    print(bak)
+    print(led)
+    for b in b:
+        if b.ledger.id==led.id:
+            print(b.ledger.id)
+            print(led.id)
+            credit[b.id]=b.amount.amount
         else:
-            debit[bak.id]=bak.amount.amount
+            if b.amount.particualrs==led:
+                print( b.amount.particualrs)
+                print(led)
+                debit[b.id]=b.amount.amount
     print(credit)
     print(debit)
 
-    return render(request,'bank_reconcilliation.html',{'c':con,'p':pay,'r':rec,'b':bnk,'l':led})
+    # print(bak.ledger.id)
+    print(led.id)
+
+    return render(request,'bank_reconcilliation.html',{'c':con,'p':pay,'r':rec,'b':b,'l':led,'cr':credit,'de':debit})
 
 def collection(request):
     collect=contra.objects.filter()
